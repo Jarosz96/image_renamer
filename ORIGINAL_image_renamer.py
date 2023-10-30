@@ -7,7 +7,6 @@ def get_datetime_and_device_from_metadata(image_path):
         with Image.open(image_path) as img:
             exif_data = img._getexif()
             if exif_data is not None:
-                # Exif data tags for DateTimeOriginal and Make (camera make)
                 date_time_original_tag = 36867
                 make_tag = 271
 
@@ -38,7 +37,5 @@ def rename_images_with_datetime_and_device(directory):
                 print(f"Renamed {filename} -------> {new_filename}")
 
 if __name__ == "__main__":
-    # Replace 'your_directory_path' with the directory containing the pictures.
-    # Make sure to back up your files before running the script.
-    your_directory_path = "C:/Users/jaros/OneDrive/Skrivbord/New folder"
+    your_directory_path = "C:/enter/your/directory/path/here/New folder"
     rename_images_with_datetime_and_device(your_directory_path)
