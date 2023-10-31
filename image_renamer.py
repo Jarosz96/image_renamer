@@ -1,6 +1,9 @@
 from PIL import Image
 import os
 import datetime
+from dotenv import load_dotenv
+
+load_dotenv()
 
 def get_datetime_and_device_from_metadata(image_path):
     try:
@@ -76,6 +79,6 @@ def rename_images_with_creation_date(directory, renamed_files):
                     print(f"An error occurred: {e}")
 
 if __name__ == "__main__":
-    your_directory_path = "C:/Users/jaros/downloads/image_renamer"
+    your_directory_path = os.getenv('IMAGE_DIRECTORY')
     renamed_files = rename_images_with_datetime_and_device(your_directory_path)
     rename_images_with_creation_date(your_directory_path, renamed_files)
